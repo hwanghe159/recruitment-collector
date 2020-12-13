@@ -1,8 +1,12 @@
 package com.junho.recruitmentcollector.crawler;
 
-import lombok.RequiredArgsConstructor;
+import com.junho.recruitmentcollector.domain.Recruitment;
 
-public class RecruitCrawler {
+import java.util.List;
 
+public class RecruitmentCrawler {
 
+    public List<Recruitment> collectRecruitments(String url) {
+        return null;
+    }
 }
