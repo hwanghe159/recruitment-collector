@@ -1,12 +1,8 @@
 package com.junho.recruitmentcollector.crawler;
 
-import com.junho.recruitmentcollector.domain.Recruitment;
+import java.util.Set;
 
-import java.util.List;
+public interface RecruitmentCrawler {
 
-public class RecruitmentCrawler {
-
-    public List<Recruitment> collectRecruitments(String url) {
-        return null;
-    }
+    Set<String> collect();
 }
