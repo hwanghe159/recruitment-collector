@@ -1,0 +1,3202 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>NHN 채용 공고(직군별 공고)</title>
+<link rel="shortcut icon" href="/img/ent/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/css/m.css">
+<script type="text/javascript" src="/js/common/common.js"></script>
+<script type="text/javascript" src="/js/common/jquery.word-break-keep-all.min.js"></script>
+<script type="text/javascript" src="/js/ent.js"></script>
+<script type="text/javascript" src="/js/common/jquery.rwdImageMaps.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready( function() {
+		resizeView();
+	});
+
+	function resizeView() {
+		if ($(window).width() > 768) {
+			$('#landingPC').show();
+			$('#landingMobile').remove();
+		} else {
+			$('#landingMobile').show();
+			$('#landingPC').remove();
+		}
+	}
+
+function moveEnt() {
+	window.open("http://www.nhnent.com/ko/index.nhn", "_blank");
+}
+
+function openPrivacyPolicy() {
+	var width = 800;
+	var height = 850;
+	var screenWidth = screen.availWidth; 	// 현재 화면의 넓이
+	var screenHeight = screen.availHeight;	// 현재 화면의 높이
+	var positionLeft = (screenWidth - width) / 2;	// 가운데 띄울 가로 위치
+	var positionTop = (screenHeight - height) / 2;	// 가운데 띄울 세로 위치
+
+	var uri = "https://www.nhn.com/footer/privacy/privacy.nhn";
+	var obj = window.open(encodeURI(uri),"privacy","width=" + width + ",height=" + height + ",top=" + positionTop + ",left=" + positionLeft + ",scrollbars=no");
+	if (obj) obj.focus();
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords" content="NHN 채용, NHN 신입, 경력직 채용, NHN 법인별 직군별 채용 공고, NHN 수시 채용">
+<meta description="NHN 채용 공고(직군별 공고)">
+
+<script type="text/javascript">
+$(document).ready(function () {
+	/* 이미지 잘림 이슈 해결 코드 시작 */
+	var diffHeight;
+	var imgHeight;
+	var imgWidth;
+	var checkImg = false;		// 더이상 이미지가 잘리지 않기 위한 높이 저장용.
+	var smallestHeight;
+	
+	var currentURL = $(location).attr('search');
+	if(currentURL.indexOf("classId") >= 0) {
+		$('.lk_all').prop('href', '/ent/recruitings?type=class');
+	}
+	$('.btn_more').click(function() {
+		recruitAppend();
+	});
+	
+	$(window).load(function () {
+		/* 페이지 로딩 시 좌측 이미지가 잘리는 현상이 일어나면 바로 수정해준다. */
+		if(($(window).height() - 80) > $('#img_2560').height()) {
+			imgHeight = $('#img_2560').height();
+			imgWidth = $('#img_2560').width();
+			if (($(window).height() - 80) >= imgHeight) {
+				$('#img_2560').height($(window).height() - 80);
+				$('#img_2560').width($('#img_2560').height() * 0.5278);
+				checkImg = true;
+			}
+			if($('div.bg_area').width() > imgWidth && checkImg){
+				$('#img_2560').removeAttr('style');
+				checkImg = false;
+			}
+		}
+	});
+	
+	/* 해상도가 일정이상 줄어들었을 때 왼쪽 이미지 하단이 잘리는 현상 수정 코드. */
+	$(window).resize(function() {
+		imgHeight = $('#img_2560').height();
+		imgWidth = $('#img_2560').width();
+		if (($(window).height() - 80) >= imgHeight) {
+			$('#img_2560').height($(window).height() - 80);
+			$('#img_2560').width($('#img_2560').height() * 0.5278);
+			checkImg = true;
+		}
+		if($('div.bg_area').width() > imgWidth && checkImg){
+			$('#img_2560').removeAttr('style');
+			checkImg = false;
+		}
+	});
+	/* 잘림 이슈 코드 끝 */
+})
+</script>
+</head>
+<body onload="">
+
+<div id="wrap" class="">
+
+
+
+
+
+
+
+
+
+
+	<div id="landingPC" style="display: none;">
+		
+<html>
+<head>
+	<title>NHN 채용</title>
+
+    <style type="text/css">
+        header {
+            overflow: hidden;
+            height: 80px;
+            background-color: #2a2528;
+            position: relative; z-index: 10;}
+        header .logo {
+            float: left;
+            width: 174px;
+            height: 32px;
+            margin: 25px 0 0 30px;
+            background-image: url(/img/landing/logo_new.png);
+            background-repeat: no-repeat;
+            -webkit-background-size: contain;
+            -moz-background-size: contain;
+            background-size: contain;
+            background-position: center; }
+        header .nav {
+            float: right;
+            margin: 20px 22px 0 0; }
+        header .nav li {
+            float: left; }
+        header .nav a {
+            display: block;
+            padding: 8px 9px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-decoration:none}
+        .nav li.selected a{color:#fd1f18 !important;}
+        .bg_area{overflow:hidden;position:fixed;top:0;left:0;right:61%;bottom:-100%;background:#9c8c83}
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var path = "/ent/recruitings";
+
+            $('.nav li').removeClass("selected");
+            if (path.indexOf("/landing") > -1) {
+                $('.nav li').eq(0).addClass("selected");
+            }
+            if (path.indexOf("/notice") > -1) {
+                $('.nav li').eq(1).addClass("selected");
+            }
+            if (path.indexOf("/recruit") > -1) {
+                $('.nav li').eq(2).addClass("selected");
+            }
+            if (path.indexOf("/faq") > -1) {
+                $('.nav li').eq(3).addClass("selected");
+            }
+
+            setClassOfSelectedMenu();
+
+            $('.nav li').not('.selected').hover(
+                function() {
+                    $(this).children().css("color", "#fd1f18");
+                },
+                function() {
+                    $(this).children().css("color", "#dfdede");
+                }
+            )
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <a href="/" class="logo"><span class="blind">NHN Recruit</span></a>
+    <ul class="nav">
+        <li><a href="/ent/landing?#none">2020 기술신입채용</a></li>
+        <li><a href="/ent/notices">공지사항</a></li>
+        <li><a href="/ent/recruitings?type=company">채용공고</a></li>
+        <li><a href="/ent/faq">채용문의</a></li>
+    </ul>
+</header>
+
+</body>
+</html>
+	</div>
+
+	<div id="landingMobile" style="display: none;">
+		
+<html>
+<head>
+	<title>NHN 채용</title>
+
+    <style type="text/css">
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 44px;
+            background-color: #2a2528;
+            z-index: 100; }
+        header .ct {
+            position: relative;
+            height: 100%;
+            padding: 0 15px; }
+        header .ct:after {
+            content: '';
+            display: block;
+            clear: both; }
+        header .logo2 {
+            float: left;
+            height: 100%; }
+        header .logo2 a {
+            display: block;
+            width: 103px;
+            height: 19px;
+            margin-top: 16px;
+            background: url(/img/landing/m/logo_new.png) no-repeat;
+            -webkit-background-size: 104px 13px;
+            -moz-background-size: 104px 13px;
+            background-size: 104px 13px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box; }
+        header .nav {
+            float: right;
+            line-height: 44px; }
+        header .nav .item_nav {
+            position: relative;
+            float: left;
+            margin-left: 10px; }
+        header .nav .item_nav:first-child {
+            margin-left: 0; }
+        header .nav .item_nav a {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: -0.33px;
+            color: #fff;
+            text-align: center;
+            text-decoration:none;}
+        /*.nav li.selected a{color:#fd1f18 !important;}*/
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var path = "/ent/recruitings";
+
+            // $('.nav li').removeClass("selected");
+            // if (path.indexOf("/landing") > -1) {
+            //     $('.nav li').eq(0).addClass("selected");
+            // }
+            // if (path.indexOf("/recruit") > -1) {
+            //     $('.nav li').eq(1).addClass("selected");
+            // }
+            // if (path.indexOf("/faq") > -1) {
+            //     $('.nav li').eq(2).addClass("selected");
+            // }
+
+            setClassOfSelectedMenu();
+
+            $('.nav li').not('.selected').hover(
+                function() {
+                    $(this).children().css("color", "#fd1f18");
+                },
+                function() {
+                    $(this).children().css("color", "#dfdede");
+                }
+            )
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="ct">
+        <h1 class="logo2"><a href="/"><span class="blind">NHN Recruit</span></a></h1>
+        <nav class="nav">
+            <ul class="lst_nav">
+                <li class="item_nav"><a href="/ent/landing">20신입공채</a></li>
+                <li class="item_nav"><a href="/ent/recruitings?type=company">채용공고</a></li>
+                <li class="item_nav"><a href="/ent/faq">채용문의</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>
+	</div>
+
+	<div id="container">
+		<div class="sub">
+	<!-- 768 이상 -->
+	<div class="bg_area">
+		<div class="bg_box">
+			<img id="img_2560" src="/img/ent/recruit/recruit_default_2560.jpg">
+		</div>
+	</div>
+	<!-- // 768 이상 -->
+	<!-- 768 이하 -->
+	<div class="bg_area bg_area_m">
+		<div class="bg_box">
+			<img src="/img/ent/recruit/recruit_default_1280.jpg">
+		</div>
+	</div>
+	<!-- // 768 이하 -->
+	<div class="cont_wrap">
+		<div class="cont_area">
+			<div class="tit_wrap">
+				<h2>채용공고 <span class="txt">채용지원은 PC에서만 가능합니다.</span></h2>
+			</div>
+			<ul class="tab_lst">
+			<li><a href="/ent/recruitings?type=company">법인별 공고</a></li>
+			<li class="last selected"><a href="/ent/recruitings?type=class">직군별 공고</a></li>
+			</ul>
+			<!-- [D] 메뉴 선택 시 타이틀 변경 -->
+			<h3 class="blind">직군별 공고</h3>
+			
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/214_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">IDC운영 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>IDC운영 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001711?classId=214">[NHN TOAST] IDC운영/관리 요원 (신입) 채용</a></p></td>
+					<td>무관</td>
+					<td>IDC운영</td>
+					<td>2020.10.30 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001711', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001711', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/233_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">게임제작 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>게임제작 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001620?classId=233">[NHN] 한게임 웹 서비스 개발 경력 정규직/계약직 채용</a></p></td>
+					<td>경력</td>
+					<td>게임제작</td>
+					<td>2020.08.13 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001620', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001620', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001612?classId=233">[NHN] 유니티 개발자 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>게임제작</td>
+					<td>2020.08.05 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001612', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001612', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/150_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">경영지원 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>경영지원 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001724?classId=150">[NHN] 교육 담당자 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>경영지원</td>
+					<td>2020.11.10 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001724', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001724', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/172_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">공통 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>공통 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001603?classId=172">[NHN godo] 고도아카데미 웹디자이너</a></p></td>
+					<td>신입</td>
+					<td>공통</td>
+					<td>2020.07.28 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001603', '', '', '001', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001603', '', '', '001', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/170_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">기술 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>기술 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001742?classId=170">[NHN] 회원 서비스 기획 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.11.24 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001742', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001742', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001712?classId=170">[NHN] 사내시스템 개발자 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.10.30 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001712', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001712', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001696?classId=170">[NHN] 클라우드 IDE 개발 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.10.13 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001696', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001696', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001673?classId=170">[NHN] Java 웹서비스 개발 경력 채용(상시 Pool)</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001673', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001673', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001677?classId=170">[NHN] 게임플랫폼 개발/기술PM 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001677', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001677', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001684?classId=170">[NHN] 기술지원 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001684', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001684', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001681?classId=170">[NHN] 네트워크 엔지니어링 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001681', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001681', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001678?classId=170">[NHN] 데이터 사이언스 및 엔지니어링 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001678', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001678', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001675?classId=170">[NHN] 머신러닝/딥러닝 연구 개발 채용(상시 Pool)</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001675', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001675', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001676?classId=170">[NHN] 모바일 앱개발 경력 채용(상시 Pool)</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001676', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001676', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001682?classId=170">[NHN] 보안 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001682', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001682', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001679?classId=170">[NHN] 시스템 엔지니어링 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001679', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001679', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001674?classId=170">[NHN] 자바스크립트 개발 경력 채용(상시 Pool)</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001674', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001674', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001672?classId=170">[NHN] 플랫폼 개발 경력 채용(상시 Pool)</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001672', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001672', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001683?classId=170">[NHN] 플랫폼기획 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.25 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001683', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001683', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001628?classId=170">[NHN] TOAST CAM 카메라 H/W개발자 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.08.20 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001628', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001628', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20000988?classId=170">[NHN] TOAST Cloud SA(서비스 아키텍트) 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.08.05 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20000988', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20000988', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001604?classId=170">[NHN] Windows Application 개발자 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.08.04 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001604', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001604', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001322?classId=170">[NHN] TOAST CAM 개발자 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.06.04 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001322', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001322', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001533?classId=170">[NHN] TOAST CAM 임베디드 개발 채용</a></p></td>
+					<td>무관</td>
+					<td>기술</td>
+					<td>2020.06.04 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001533', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001533', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001341?classId=170">[NHN] TOAST Cloud 사업기획/영업 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2019.09.03 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001341', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001341', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001340?classId=170">[NHN] TOAST Cloud 운영 및 기술지원 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2019.09.03 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001340', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001340', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001749?classId=170">[NHN PAYCO] 광고플랫폼 개발 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.12.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001749', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001749', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001756?classId=170">[NHN TOAST] 보안솔루션 운영 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.11.20 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001756', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001756', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001715?classId=170">[NHN TOAST] Test Engineer(신입/계약직) 채용</a></p></td>
+					<td>신입</td>
+					<td>기술</td>
+					<td>2020.11.05 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001715', '', '', '001', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001715', '', '', '001', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001700?classId=170">[NHN TOAST] 모바일 앱 개발자 (경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.10.20 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001700', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001700', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001626?classId=170">[NHN TOAST] 2020년 경력 개발자 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.08.19 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001626', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001626', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001597?classId=170">[NHN TOAST] QA Engineer(경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.07.08 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001597', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001597', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001572?classId=170">[NHN TOAST] Back-End 개발자(경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.07.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001572', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001572', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001573?classId=170">[NHN TOAST] Front-End 개발자(경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.07.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001573', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001573', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001574?classId=170">[NHN TOAST] UI마크업 개발자(경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.07.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001574', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001574', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001575?classId=170">[NHN TOAST] 클라우드 엔지니어 (경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.07.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001575', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001575', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001745?classId=170">[NHN TicketLink] Front-End 개발자(경력) 채용</a></p></td>
+					<td>무관</td>
+					<td>기술</td>
+					<td>2020.12.03 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TL', '20001745', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TL', '20001745', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001472?classId=170">[NHN TicketLink] 티켓링크 Java 개발자 경력 채용</a></p></td>
+					<td>무관</td>
+					<td>기술</td>
+					<td>2020.02.24 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TL', '20001472', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TL', '20001472', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001630?classId=170">[NHN godo] QA 담당자</a></p></td>
+					<td>신입</td>
+					<td>기술</td>
+					<td>2020.12.04 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001630', '', '', '001', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001630', '', '', '001', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001729?classId=170">[NHN godo] 솔루션 개발자</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.11.12 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001729', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001729', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001686?classId=170">[NHN godo] 정보보호 담당자</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.09.28 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001686', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001686', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001633?classId=170">[NHN godo] 모바일 개발자(Android)</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.08.26 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001633', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001633', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001605?classId=170">[NHN godo] DevOps 개발자</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.08.03 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001605', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001605', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001432?classId=170">[NHN godo] 모바일 개발자(iOS)</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.08.03 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001432', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001432', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001727?classId=170">[NHN ACE] BI/DW 엔지니어 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.11.11 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('AS', '20001727', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('AS', '20001727', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001728?classId=170">[NHN ACE] 데이터 엔지니어 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>기술</td>
+					<td>2020.11.11 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('AS', '20001728', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('AS', '20001728', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/151_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">디자인 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>디자인 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001580?classId=151">[NHN TOAST] UI디자이너(경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>디자인</td>
+					<td>2020.12.16 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001580', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001580', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001720?classId=151">[NHN AD] 광고 디자이너 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>디자인</td>
+					<td>2020.11.09 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NA', '20001720', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NA', '20001720', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001640?classId=151">[NHN AD] UI/UX 컨설팅 신입/경력 채용</a></p></td>
+					<td>무관</td>
+					<td>디자인</td>
+					<td>2020.09.08 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NA', '20001640', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NA', '20001640', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001753?classId=151">[NHN ACE] 웹디자인 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>디자인</td>
+					<td>2020.12.09 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('AS', '20001753', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('AS', '20001753', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/133_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">마케팅 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>마케팅 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001680?classId=133">[NHN] 웹툰/웹소설 플랫폼 운영 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>마케팅</td>
+					<td>2020.09.24 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001680', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001680', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001667?classId=133">[NHN] 웹툰/웹소설 플랫폼 마케팅 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>마케팅</td>
+					<td>2020.09.21 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001667', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001667', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001757?classId=133">[NHN AD] 광고 플랫폼 운영 신입/경력 채용</a></p></td>
+					<td>무관</td>
+					<td>마케팅</td>
+					<td>2020.12.14 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NA', '20001757', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NA', '20001757', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001634?classId=133">[NHN AD] 광고 AE 신입/경력 채용</a></p></td>
+					<td>무관</td>
+					<td>마케팅</td>
+					<td>2020.08.26 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NA', '20001634', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NA', '20001634', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001565?classId=133">[NHN AD] 쇼핑박스 운영 AE 경력 채용</a></p></td>
+					<td>무관</td>
+					<td>마케팅</td>
+					<td>2020.06.26 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NA', '20001565', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NA', '20001565', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/174_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">사업 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>사업 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001759?classId=174">[NHN Bugs] 벅스 사업기획 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.12.17 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('BM', '20001759', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('BM', '20001759', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001740?classId=174">[NHN] 웹툰/웹소설 콘텐츠 기획 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.11.27 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001740', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001740', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001739?classId=174">[NHN] 모바일 서비스 기획 담당 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.11.24 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001739', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001739', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001708?classId=174">[NHN] O2O 사업 기획 및 마케팅 전략 담당 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.10.29 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001708', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001708', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001341?classId=174">[NHN] TOAST Cloud 사업기획/영업 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2019.09.03 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001341', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001341', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001754?classId=174">[NHN PAYCO] 오더 서비스 CS 담당자 경력 채용(계약직)</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.12.09 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001754', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001754', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001751?classId=174">[NHN PAYCO] 금융서비스 기획 및 제휴 운영 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.12.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001751', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001751', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001744?classId=174">[NHN PAYCO] 광고 플랫폼 기획 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.12.01 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001744', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001744', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001743?classId=174">[NHN PAYCO] 쿠폰 사업기획/영업/지원/운영 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.11.26 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001743', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001743', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001738?classId=174">[NHN PAYCO] 온라인 영업 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.11.24 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001738', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001738', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001701?classId=174">[NHN PAYCO] 멤버십/CRM 시스템 사업기획 및 운영 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.10.20 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001701', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001701', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001699?classId=174">[NHN PAYCO] 솔루션 사업 기획/운영 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.10.20 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001699', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001699', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001595?classId=174">[NHN PAYCO] 소프트웨어 프로덕트 매니저 채용</a></p></td>
+					<td>무관</td>
+					<td>사업</td>
+					<td>2020.10.20 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001595', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001595', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001694?classId=174">[NHN PAYCO] 인증서비스 사업기획/운영 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.10.12 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001694', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001694', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001526?classId=174">[NHN PAYCO] 온/오프라인 영업지원 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.05.26 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NE', '20001526', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NE', '20001526', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001714?classId=174">[NHN AD] 영업기획/운영 신입 채용</a></p></td>
+					<td>신입</td>
+					<td>사업</td>
+					<td>2020.11.04 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('NA', '20001714', '', '', '001', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('NA', '20001714', '', '', '001', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001691?classId=174">[NHN Edu] 교육사업 기획 경력직 채용</a></p></td>
+					<td>경력</td>
+					<td>사업</td>
+					<td>2020.10.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('ED', '20001691', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('ED', '20001691', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/236_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">서비스 관리 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>서비스 관리 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001750?classId=236">[NHN Service] [분당] 페이코오더 등록파트 담당(정규직) 채용</a></p></td>
+					<td>무관</td>
+					<td>서비스 관리</td>
+					<td>2020.12.07 ~ 2020.12.31</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GP', '20001750', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GP', '20001750', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/177_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">서비스기획 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>서비스기획 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001734?classId=177">[NHN Bugs] 벅스 서비스기획 경력 채용</a></p></td>
+					<td>경력</td>
+					<td>서비스기획</td>
+					<td>2020.11.18 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('BM', '20001734', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('BM', '20001734', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001581?classId=177">[NHN TOAST] 플랫폼기획(경력) 채용</a></p></td>
+					<td>경력</td>
+					<td>서비스기획</td>
+					<td>2020.07.09 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('TOAST', '20001581', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('TOAST', '20001581', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001725?classId=177">[NHN godo] 서비스 기획자</a></p></td>
+					<td>경력</td>
+					<td>서비스기획</td>
+					<td>2020.11.11 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001725', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001725', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001726?classId=177">[NHN godo] 솔루션 기획자</a></p></td>
+					<td>경력</td>
+					<td>서비스기획</td>
+					<td>2020.11.11 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GD', '20001726', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GD', '20001726', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/239_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">영업관리 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>영업관리 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001615?classId=239">[NHN Service] [판교]영업 관리 담당 채용</a></p></td>
+					<td>무관</td>
+					<td>영업관리</td>
+					<td>2020.08.05 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GP', '20001615', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GP', '20001615', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/184_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">총무 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>총무 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001758?classId=184">[NHN Service] [분당] 사무보조(아르바이트) 채용</a></p></td>
+					<td>아르바이트</td>
+					<td>총무</td>
+					<td>2020.12.17 ~ 2020.12.31</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GP', '20001758', '', '', '005', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GP', '20001758', '', '', '005', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001748?classId=184">[NHN Service] [분당] 총무 담당자 채용</a></p></td>
+					<td>무관</td>
+					<td>총무</td>
+					<td>2020.12.04 ~ 2020.12.31</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('GP', '20001748', '', '', '003', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('GP', '20001748', '', '', '003', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+			<!-- [D] 직군 삭제시 jobhide 추가 -->
+			<div class="tbl_sec jobhide">
+				<div class="img_bx">
+					<img src="/img/ent/recruit/20_class.png" onerror="this.src='/img/ent/recruit/133_class.png';">
+				</div>
+				<table class="tbl_lst">
+					<caption><span class="blind">컨텐츠전략기획 공고 목록</span></caption>
+					<colgroup>
+					<col>
+					<col style="width:88px">
+					<col style="width:90px">
+					<col style="width:214px">
+					<col style="width:210px">
+					</colgroup>
+					<thead>
+					<tr>
+					<th>컨텐츠전략기획 모집분야</th>
+					<th>대상</th>
+					<th>직군</th>
+					<th>모집기간</th>
+					<th>지원서 작성</th>
+					</tr>
+					</thead>
+					<tbody>
+					
+					
+					<tr>
+					<td><p class="frst_td"><a href="/ent/recruitings/20001690?classId=20">[NHN Edu] 수학 컨텐츠 기획 경력직 채용</a></p></td>
+					<td>경력</td>
+					<td>컨텐츠전략기획</td>
+					<td>2020.10.07 ~ 채용시까지</td>
+					<td>
+					
+						
+							<a href="javascript:openRecruitAgreePage('ED', '20001690', '', '', '002', '')" class="btn b_red">신규지원</a>
+							<a href="javascript:openRecruitLoginPage('ED', '20001690', '', '', '002', '', 'edit')" class="btn">수정</a>
+						
+						
+						
+						
+					
+					</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			
+
+			<!-- 640 view -->
+			<div class="tbl_sec_m">
+				
+				<h4>IDC운영</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001711?classId=214">
+							<h3>IDC운영/관리 요원 (신입) 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">IDC운영</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.30 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>게임제작</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001620?classId=233">
+							<h3>한게임 웹 서비스 개발 경력 정규직/계약직 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">게임제작</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.13 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001612?classId=233">
+							<h3>유니티 개발자 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">게임제작</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.05 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>경영지원</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001724?classId=150">
+							<h3>교육 담당자 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">경영지원</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.10 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>공통</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001603?classId=172">
+							<h3>고도아카데미 웹디자이너</h3>
+							<span class="txt">신입</span>
+							<span class="bar"></span>
+							<span class="txt">공통</span>
+							<span class="bar"></span>
+							<span class="txt">2020.07.28 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>기술</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001742?classId=170">
+							<h3>회원 서비스 기획 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.24 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001712?classId=170">
+							<h3>사내시스템 개발자 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.30 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001696?classId=170">
+							<h3>클라우드 IDE 개발 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.13 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001673?classId=170">
+							<h3>Java 웹서비스 개발 경력 채용(상시 Pool)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001677?classId=170">
+							<h3>게임플랫폼 개발/기술PM 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001684?classId=170">
+							<h3>기술지원 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001681?classId=170">
+							<h3>네트워크 엔지니어링 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001678?classId=170">
+							<h3>데이터 사이언스 및 엔지니어링 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001675?classId=170">
+							<h3>머신러닝/딥러닝 연구 개발 채용(상시 Pool)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001676?classId=170">
+							<h3>모바일 앱개발 경력 채용(상시 Pool)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001682?classId=170">
+							<h3>보안 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001679?classId=170">
+							<h3>시스템 엔지니어링 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001674?classId=170">
+							<h3>자바스크립트 개발 경력 채용(상시 Pool)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001672?classId=170">
+							<h3>플랫폼 개발 경력 채용(상시 Pool)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001683?classId=170">
+							<h3>플랫폼기획 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.25 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001628?classId=170">
+							<h3>TOAST CAM 카메라 H/W개발자 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.20 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20000988?classId=170">
+							<h3>TOAST Cloud SA(서비스 아키텍트) 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.05 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001604?classId=170">
+							<h3>Windows Application 개발자 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.04 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001322?classId=170">
+							<h3>TOAST CAM 개발자 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.06.04 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001533?classId=170">
+							<h3>TOAST CAM 임베디드 개발 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.06.04 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001341?classId=170">
+							<h3>TOAST Cloud 사업기획/영업 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2019.09.03 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001340?classId=170">
+							<h3>TOAST Cloud 운영 및 기술지원 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2019.09.03 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001749?classId=170">
+							<h3>광고플랫폼 개발 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001756?classId=170">
+							<h3>보안솔루션 운영 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.20 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001715?classId=170">
+							<h3>Test Engineer(신입/계약직) 채용</h3>
+							<span class="txt">신입</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.05 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001700?classId=170">
+							<h3>모바일 앱 개발자 (경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.20 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001626?classId=170">
+							<h3>2020년 경력 개발자 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.19 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001597?classId=170">
+							<h3>QA Engineer(경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.07.08 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001572?classId=170">
+							<h3>Back-End 개발자(경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.07.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001573?classId=170">
+							<h3>Front-End 개발자(경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.07.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001574?classId=170">
+							<h3>UI마크업 개발자(경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.07.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001575?classId=170">
+							<h3>클라우드 엔지니어 (경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.07.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001745?classId=170">
+							<h3>Front-End 개발자(경력) 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.03 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001472?classId=170">
+							<h3>티켓링크 Java 개발자 경력 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.02.24 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001630?classId=170">
+							<h3>QA 담당자</h3>
+							<span class="txt">신입</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.04 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001729?classId=170">
+							<h3>솔루션 개발자</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.12 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001686?classId=170">
+							<h3>정보보호 담당자</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.28 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001633?classId=170">
+							<h3>모바일 개발자(Android)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.26 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001605?classId=170">
+							<h3>DevOps 개발자</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.03 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001432?classId=170">
+							<h3>모바일 개발자(iOS)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.03 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001727?classId=170">
+							<h3>BI/DW 엔지니어 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.11 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001728?classId=170">
+							<h3>데이터 엔지니어 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">기술</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.11 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>디자인</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001580?classId=151">
+							<h3>UI디자이너(경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">디자인</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.16 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001720?classId=151">
+							<h3>광고 디자이너 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">디자인</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.09 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001640?classId=151">
+							<h3>UI/UX 컨설팅 신입/경력 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">디자인</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.08 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001753?classId=151">
+							<h3>웹디자인 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">디자인</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.09 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>마케팅</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001680?classId=133">
+							<h3>웹툰/웹소설 플랫폼 운영 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">마케팅</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.24 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001667?classId=133">
+							<h3>웹툰/웹소설 플랫폼 마케팅 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">마케팅</span>
+							<span class="bar"></span>
+							<span class="txt">2020.09.21 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001757?classId=133">
+							<h3>광고 플랫폼 운영 신입/경력 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">마케팅</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.14 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001634?classId=133">
+							<h3>광고 AE 신입/경력 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">마케팅</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.26 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001565?classId=133">
+							<h3>쇼핑박스 운영 AE 경력 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">마케팅</span>
+							<span class="bar"></span>
+							<span class="txt">2020.06.26 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>사업</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001759?classId=174">
+							<h3>벅스 사업기획 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.17 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001740?classId=174">
+							<h3>웹툰/웹소설 콘텐츠 기획 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.27 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001739?classId=174">
+							<h3>모바일 서비스 기획 담당 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.24 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001708?classId=174">
+							<h3>O2O 사업 기획 및 마케팅 전략 담당 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.29 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001341?classId=174">
+							<h3>TOAST Cloud 사업기획/영업 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2019.09.03 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001754?classId=174">
+							<h3>오더 서비스 CS 담당자 경력 채용(계약직)</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.09 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001751?classId=174">
+							<h3>금융서비스 기획 및 제휴 운영 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001744?classId=174">
+							<h3>광고 플랫폼 기획 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.01 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001743?classId=174">
+							<h3>쿠폰 사업기획/영업/지원/운영 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.26 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001738?classId=174">
+							<h3>온라인 영업 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.24 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001701?classId=174">
+							<h3>멤버십/CRM 시스템 사업기획 및 운영 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.20 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001699?classId=174">
+							<h3>솔루션 사업 기획/운영 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.20 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001595?classId=174">
+							<h3>소프트웨어 프로덕트 매니저 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.20 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001694?classId=174">
+							<h3>인증서비스 사업기획/운영 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.12 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001526?classId=174">
+							<h3>온/오프라인 영업지원 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.05.26 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001714?classId=174">
+							<h3>영업기획/운영 신입 채용</h3>
+							<span class="txt">신입</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.04 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001691?classId=174">
+							<h3>교육사업 기획 경력직 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">사업</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>서비스 관리</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001750?classId=236">
+							<h3>[분당] 페이코오더 등록파트 담당(정규직) 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">서비스 관리</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.07 ~ 2020.12.31</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>서비스기획</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001734?classId=177">
+							<h3>벅스 서비스기획 경력 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">서비스기획</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.18 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001581?classId=177">
+							<h3>플랫폼기획(경력) 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">서비스기획</span>
+							<span class="bar"></span>
+							<span class="txt">2020.07.09 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001725?classId=177">
+							<h3>서비스 기획자</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">서비스기획</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.11 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001726?classId=177">
+							<h3>솔루션 기획자</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">서비스기획</span>
+							<span class="bar"></span>
+							<span class="txt">2020.11.11 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>영업관리</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001615?classId=239">
+							<h3>[판교]영업 관리 담당 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">영업관리</span>
+							<span class="bar"></span>
+							<span class="txt">2020.08.05 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>총무</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001758?classId=184">
+							<h3>[분당] 사무보조(아르바이트) 채용</h3>
+							<span class="txt">아르바이트</span>
+							<span class="bar"></span>
+							<span class="txt">총무</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.17 ~ 2020.12.31</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="/ent/recruitings/20001748?classId=184">
+							<h3>[분당] 총무 담당자 채용</h3>
+							<span class="txt">무관</span>
+							<span class="bar"></span>
+							<span class="txt">총무</span>
+							<span class="bar"></span>
+							<span class="txt">2020.12.04 ~ 2020.12.31</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<h4>컨텐츠전략기획</h4>
+				<ul class="cont_lst">
+					
+					<li>
+						<a href="/ent/recruitings/20001690?classId=20">
+							<h3>수학 컨텐츠 기획 경력직 채용</h3>
+							<span class="txt">경력</span>
+							<span class="bar"></span>
+							<span class="txt">컨텐츠전략기획</span>
+							<span class="bar"></span>
+							<span class="txt">2020.10.07 ~ 채용시까지</span>
+						</a>
+					</li>
+					
+				</ul>
+				
+				<!-- 
+				<button type="button" class="btn_more">더보기<span class="sp"></span></button>
+				 -->
+			</div>
+			<!-- // 640 view -->
+		</div>
+	</div>
+</div>
+	</div>
+
+	<div id="footer">
+		<span class="add">대표이사 : 정우진<span style="margin: 5px"></span><span style="font-size:9px;">|</span><span style="margin: 5px"></span>주소 : 13487 경기도 성남시 분당구 대왕판교로645번길 16 NHN 플레이뮤지엄
+		<span style="margin: 5px"></span><span style="font-size:9px;">|</span>
+
+		<a href="javascript:openPrivacyPolicy()">
+			<span style="margin: 5px"></span>
+			<span style="color: #2d2d2d;"><b>개인정보 처리방침</b></span>
+		</a>
+		</span>
+
+		<a href="javascript:moveEnt()">
+			<span class="copyright"><span class="copy"> &copy; </span><em>NHN Corp.</em> All rights reserverd.</span>
+		</a>
+	</div>
+</div>
+
+</body>
+</html>
