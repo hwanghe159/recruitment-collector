@@ -11,7 +11,6 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 class NaverCrawlerTest {
 
     private DynamicWebPageUrlCrawler crawler;

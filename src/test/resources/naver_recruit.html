@@ -1,0 +1,565 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>모집소식 : NAVER Career</title>
+<script type="text/javascript">
+var g_domain = "recruit.navercorp.com";
+var g_companyName = "NAVER";
+var g_locale = "ko_KR";
+var g_browserTitle = "NAVER Career";
+var g_serverEnv = "release";
+
+</script>
+
+<link rel="icon" href="/img/favicon/naver_favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://recruit.navercorp.com/img/favicon/naver_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="/css/naver.css?20201224155951">
+<script type="text/javascript" src="/js/common/common.js?20201224155951"></script>
+<script type="text/javascript" src="/js/naver.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var pathName = window.location.pathname;
+		var pathArray = pathName.split("/");
+		var path = pathArray[pathArray.length - 1];
+		
+		if (pathName.indexOf("recruitMain") > -1) {
+			$("#gnbDivV1").show();
+			$("#gnbDivV2").hide();
+			$("#langDiv").hide();
+		} else {
+			$("#gnbDivV1").hide();
+			$("#gnbDivV2").show();
+			$("#langDiv").show();
+		}
+		
+		// 공지사항 보기인 경우 classNm 설정
+		if (pathName.indexOf("noticeRead") > -1) {
+			path = pathArray[pathArray.length - 2];
+		}
+		
+		$("#menu_" + path).addClass("on");
+		
+		$("#btnRelateSite").click(function(){
+			if ($("#relate_site").hasClass("on")) {
+				$("#relate_site").removeClass("on");
+			} else {
+				$("#relate_site").addClass("on");
+			}
+		});
+		
+		$(".site_list > ul").find("li").click(function() {
+			if ($("#relate_site").hasClass("on")) {
+				$("#relate_site").removeClass("on");
+			}
+		});
+		
+		$("#entType").addClass("on");
+		
+		// placeholder
+		$("input, textarea").placeholder();
+		
+		// safari, chrome 에서의 input에 대한 placeholder css 재정의
+		$("input").each(function() {
+			if ($(this).prop("tagName") == "INPUT" 
+				&& (navigator.userAgent.indexOf("Safari") > -1 && navigator.userAgent.indexOf("Windows") > -1)
+				&& navigator.userAgent.indexOf("Chrome") == -1
+				&& getOSInfo().indexOf("Mac") == -1) {
+				$(this).css("line-height", "0px");
+			}
+		});
+		
+		$.fn.clickOutsideThisElement = function (callback) {
+			return this.each(function () {
+				var self = this;
+				$(document).click(function (e) {
+					if (!$(e.target).closest(self).length) {
+						callback.call(self, e)
+					}
+				})
+			});
+		};
+		
+		$(".slct_box").each(function(){
+			$(this).clickOutsideThisElement(function() {
+				$(this).removeClass("on");
+				$(this).children('.choice_txt').removeClass("on");
+				$(this).children('.slct_box_list').hide();
+			}).click(function() {
+				if (!$(this).hasClass("on")) {
+					$(this).addClass("on");
+					$(this).children('.choice_txt').addClass("on");
+					$(this).children('.slct_box_list').show();
+				} else {
+					$(this).removeClass("on");
+					$(this).children('.choice_txt').removeClass("on");
+					$(this).children('.slct_box_list').hide();
+				}
+			});
+		});
+		
+		$("select").each(function(idx){
+			createComboBoxList($(this));
+		});
+		
+		$("[class='slct_box_list']").find("ul").each(function(){
+			selectComboBoxData($(this));
+		});
+	});
+</script>
+<style type="text/css">
+.placeholder { color: #cccccc; }
+input:focus::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: transparent!important;
+}
+textarea:focus::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: transparent!important;
+}
+input:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: transparent!important;
+}
+input:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color:	#cccccc;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color:	#cccccc;
+}
+</style>
+<meta name="headerClass" content="sub_header">
+<style type="text/css">
+.highlight {font-weight: bold;}
+</style>
+<script type="text/javascript" src="/js/common/jquery.highlight-4.js"></script>
+<script type="text/javascript">
+var listData,pageSize=10,page=1,totalRows=15;
+$(document).ready(function(){
+	$("#btnTop").click(function() {
+		$('body,html').animate({scrollTop:0}, 500);
+	});
+	
+	loadJobList();
+});
+
+function loadJobList() {
+	var startNum = pageSize * (page - 1) + 1;
+	var endNum = Math.min(pageSize * page, totalRows);
+	
+	if (startNum <= totalRows) {
+		$.post(
+			"/naver/job/listJson"
+			,"&classNm=developer&entTypeCd=&searchTxt=&searchSysComCd=&startNum=" + startNum + "&endNum=" + endNum
+			,function(data,textStatus, xhr){
+				drawJobList(data, endNum);
+				listData = data;
+			}
+		);
+	}
+}
+
+function drawJobList(data, endNum) {
+	if (data.length > 0) {
+		var jobList = "";
+		for (var i=0; i < data.length; i++) {
+			var jobNm = data[i].jobNm;
+			var annoId = data[i].annoId;
+			var classId = (data[i].classId != null) ? data[i].classId : "";
+			var jobId = (data[i].jobId != null) ? data[i].jobId : "";
+			var staYmd = data[i].staYmd;
+			var endYmd = data[i].endYmd;
+			var stateCd = data[i].stateCd;
+			var reqTypeCd = data[i].reqTypeCd;
+			var dDay = data[i].dDay;
+			var jobKeyword = (data[i].jobKeyword != null) ? data[i].jobKeyword : "";
+			var today = getToDay(false);
+			var displayNew = "";
+			var dDayClass = "";
+			var dDayNm = "";
+			var jobDate = "";
+			var jobClass = "";
+			var openYn = data[i].openYn;
+			var sysCompanyCd =  data[i].sysCompanyCd;
+
+			if (stateCd == "007" && (reqTypeCd == "1300" || reqTypeCd == "1200")) {
+				jobDate = "상시모집";
+				dDayClass = "txt";
+				displayNew = "none";
+			} else if (stateCd == "006") {
+				if (openYn == "Y") {
+					jobDate = staYmd.toDateFmt() + "~" + endYmd.toDateFmt();
+					dDayNm = "D-" + dDay;
+					displayNew = "block";
+					
+					if ((today.toDate() - staYmd.toDate()) / (24*60*60*1000) > 7) {
+						displayNew = "none";
+					}
+					
+					if (endYmd == "29991231") {
+						jobDate = "상시모집";
+						dDayClass = "txt";
+						displayNew = "none";
+					}
+				} else if (openYn == "N") {
+					jobClass = "class='off'";
+					jobDate = "<span style='color:#a6a6a6'>마감</span>"
+					dDayClass = "txt";
+					displayNew = "none";
+				} else {
+					jobDate = "<span style='color:#a6a6a6'>예정&nbsp;&nbsp;" + staYmd.toDateFmt() + "~" + endYmd.toDateFmt() + "</span>";
+					dDayClass = "txt";
+					displayNew = "none";
+				}
+			}
+
+			var jobKeywordLink = "";
+			var paramJobKeyword = "";
+			if (jobKeyword != "") {
+				if (jobKeyword.indexOf(",") > -1) {
+					var tagCount = 5;
+					if (annoId == "20003165") {
+						tagCount = 8;
+					}
+					var keywordArray = jobKeyword.split(",");
+					for (var k=0; k < tagCount; k++) {
+						if (typeof(keywordArray[k]) != "undefined") {
+							var jobKeywordNm = keywordArray[k].trim();
+							jobKeywordLink += "<a href='/naver/job/list/developer?entTypeCd=&searchSysComCd=&searchTxt=" + encodeURIComponent(jobKeywordNm) + "'>#";
+							jobKeywordLink += (jobKeywordNm.toLowerCase() == paramJobKeyword.toLowerCase()) ? "<em class='fnd_txt'>" + jobKeywordNm + "</em>" : jobKeywordNm;
+							jobKeywordLink += "</a>";
+						}
+					}
+				} else {
+					jobKeywordLink += "<a href='/naver/job/list/developer?entTypeCd=&searchSysComCd=&searchTxt=" + encodeURIComponent(jobKeyword) + "'>#";
+					jobKeywordLink += (jobKeyword.toLowerCase() == paramJobKeyword.toLowerCase()) ? "<em class='fnd_txt'>" + jobKeyword + "</em>" : jobKeyword;
+					jobKeywordLink += "</a>";
+				}
+			}
+
+			jobList += "<li " + jobClass + ">";
+			jobList += "	<a href='/naver/job/detail/developer?annoId=" + annoId + "&classId=" + classId + "&jobId=" + jobId + "&entTypeCd=&searchTxt=&searchSysComCd='>";
+			jobList += "		<span class='list_con'>";
+			jobList += "			<strong class='crd_tit'>" + jobNm + "</strong>";
+			jobList += "			<span class='sp crd_new' style='display:" + displayNew + "'>NEW</span>";
+			jobList += "			<em class='crd_date'>" + jobDate + "</em>";
+			jobList += "			<span class='crd_ci'><img src='/img/common/sml_" + sysCompanyCd + "_ci.png' height='20px'/></span>";
+			jobList += "		</span>";
+			jobList += "	</a>";
+			jobList += "	<span class='tag_area'>";
+			jobList += jobKeywordLink;
+			jobList += "	&nbsp;</span>";
+
+			jobList += "</li>";
+		}
+		
+		$("#jobListDiv > ul").append(jobList);
+		
+		$(".crd_tit").highlight("");
+		
+		if (endNum == totalRows) {
+			$("#moreDiv").hide();
+		} else {
+			var moreCnt = parseInt(totalRows - (pageSize * page));
+			if (moreCnt >= 10) {
+				moreCnt = pageSize;
+			}
+			
+			$("#moreDiv").empty().html("<button type='button' onclick='loadJobList();' class='more_btn' style='cursor:pointer'><span class='more_num'>" + moreCnt + "개 </span>더보기</button>");
+			$("#moreDiv").show();
+		}
+		
+		page++;
+	}
+}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<!-- header -->
+	<div id="header" class="sub_header">
+		<div class="header_con">
+			<h1><a href="javascript:goPage('', '/')" class="sp logo"><span class="blind">NAVER Career</span></a></h1>
+			<div id="gnbDivV1" class="gnb_con">
+				<div class="sup_area v2">
+					<h2 class="blind">마이 페이지</h2>
+					<ul>
+					<li><a href="/naver/login/myApplicationLogin" class="sp my_app"><span class="blind">내 지원서</span></a></li>
+					<li><a href="/naver/recruitFaq" class="sp app_inqu"><span class="blind">지원문의</span></a></li>
+					<li><div class="lang_area"><a href="/global/recruitMain" class="sp lang_en"><span class="blind">English</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="langDiv" class="lang_area" style="display: none;">
+				<a href="/global/recruitMain" class="sp lang_en"><span class="blind">English</span></a>
+			</div>
+		</div>
+	</div>
+	<!-- //header -->
+	
+	<!-- gnb -->
+	<div id="gnbDivV2" class="gnb_area" style="display: none;">
+		<div class="gnb_con">
+			<div class="gnb">
+				<h2 class="blind">채용 서비스 메뉴</h2>
+				<ul>
+				<li id="menu_developer"><a href="/naver/job/list/developer" class="sp devlop"><span class="blind">개발</span></a></li>
+				<li id="menu_designer"><a href="/naver/job/list/designer" class="sp design"><span class="blind">디자인</span></a></li>
+				<li id="menu_contents"><a href="/naver/job/list/contents" class="sp con_ser"><span class="blind">콘텐츠&amp;서비스</span></a></li>
+				<li id="menu_management"><a href="/naver/job/list/management" class="sp com_sup"><span class="blind">경영지원</span></a></li>
+				</ul>
+			</div>
+			<div class="sup_area">
+				<h2 class="blind">마이 페이지</h2>
+				<ul>
+				<li><a href="/naver/login/myApplicationLogin" class="sp my_app"><span class="blind">내 지원서</span></a></li>
+				<li><a href="/naver/recruitFaq" class="sp app_inqu"><span class="blind">지원문의</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //gnb -->
+
+	<!-- container -->
+	<div id="container">
+
+		<!-- content -->
+		<div id="content">
+			<div class="job_fam">
+				<h3 class="blind">모집 소식</h3>
+				<!-- top_menu -->
+				
+<script type="text/javascript" src="/js/common/jquery.syaku.rolling.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var windowPathName = window.location.pathname;
+		var windowPathArray = windowPathName.split("/");
+		var windowPath = windowPathArray[windowPathArray.length - 2];
+		if (windowPath == "detail") {
+			windowPath = "list";
+		}
+		
+		$("#subMenu_" + windowPath).addClass("on");
+		
+		
+		var jrolling = $('#notiList > ul').jrolling({
+			'items': '#notiList ul li',
+			'width': '330px',
+			'height': '19px',
+			'move': 'up',
+			'auto': true,
+			'prev': '#prev',
+			'next': '#next'
+		});
+
+		jrolling.target.on('motionAfter', function(event, index) {
+			//$('#jrolling_text').text(index);
+		});
+	});
+</script>
+				<div class="top_menu">
+					<div class="navi">
+						
+							
+								
+								
+							
+							
+							
+							
+						
+						<ul>
+						<li id="subMenu_list"><a href="/naver/job/list/developer" class="sp job_news"><span class="blind">모집 소식</span></a></li>
+						<li id="subMenu_story"><a href="/naver/story/developer" class="sp dev_story"><span class="blind">개발자 이야기</span></a></li>
+						</ul>
+					</div>
+					<div class="noti">
+						<div id="notiList" class="roll_noti" style="">
+							<em class="sp ico_noti" onclick="location.href='/naver/notice/developer/'" style="cursor: pointer;"><span class="blind">공지</span></em>
+							<ul>
+							
+								<li>
+									<a href="/naver/noticeRead/developer/20000110">
+										
+										
+											
+												NAVER(주)의 채용서류 반환 절차에 대해 안내…
+											
+											
+										
+										
+									</a>
+								</li>
+							
+								<li>
+									<a href="/naver/noticeRead/developer/20000068">
+										
+										
+											
+											
+												채용관련 보이스피싱 등 금융사고 주의 안내
+											
+										
+										
+									</a>
+								</li>
+							
+								<li>
+									<a href="/naver/noticeRead/developer/20000017">
+										
+										
+											
+											
+												입사지원서 작성 관련하여 안내드립니다.
+											
+										
+										
+									</a>
+								</li>
+							
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- //top_menu -->
+				<!-- srch_area -->
+				<div class="srch_area">
+				
+<script type="text/javascript">
+	$(document).ready(function() {
+		if ("" != "") {
+			$("#searchSysComCd").val("");
+			selectedComboBoxText($("#searchSysComCd"));
+		}
+		
+		$("#searchSysComCd").trigger("change");
+		
+		$("#searchSysComCd").change(function() {
+			$('#jobSearchForm').submit();
+		});
+	});
+	
+	function searchJobList(entTypeCd) {
+		$("#jobSearchForm #entTypeCd").val(entTypeCd);
+		$("#jobSearchForm").submit();
+	}
+</script>
+					<div class="grade_navi">
+						<ul>
+						<li id="entType" class=""><a href="#" onclick="searchJobList(''); return false;" class="sp gd_all"><span class="blind">전체</span></a></li>
+						<li id="entType001" class=""><a href="#" onclick="searchJobList('001'); return false;" class="sp gd_juni"><span class="blind">신입</span></a></li>
+						<li id="entType002" class=""><a href="#" onclick="searchJobList('002'); return false;" class="sp gd_seni"><span class="blind">경력</span></a></li>
+						<li id="entType004" class=""><a href="#" onclick="searchJobList('004'); return false;" class="sp gd_inte"><span class="blind">인턴</span></a></li>
+						</ul>
+					</div>
+					<div class="srch_info">
+						<form id="jobSearchForm" action="/naver/job/list/developer" method=GET>
+						<div class="slct_box">
+								<a href="#null" id="slctCountry" class="choice_txt">
+									<span class="">전체</span>
+									<span class="sp dn_arrow">select</span>
+								</a>
+								<select id="searchSysComCd" name="searchSysComCd" style="display: none; width: 153px">
+									<option value="">전체</option>
+									<option value="KR">NAVER</option>
+									<option value="NL">LABS</option>
+									<option value="NB">NAVER Cloud</option>
+									<option value="SN">SNOW</option>
+									<option value="WTKR">WEBTOON</option>
+									<option value="WM">Works Mobile</option>
+									<option value="NFN">NAVER FINANCIAL</option>
+								</select>
+							</div>
+							<div id="srch_box" class="srch_box">
+								<input type="hidden" id="entTypeCd" name="entTypeCd" value="">
+								<label for="searchTxt" class="srch_jobs"></label>
+								<input type="text" id="searchTxt" name="searchTxt" placeholder="Search Jobs" class="ipt_srch" value="">
+								<a href="#null" onclick="$('#jobSearchForm').submit();" id="btnSearch" class="sp ico_srch"><span class="blind">검색</span></a>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- //srch_area -->
+				
+				
+				
+				
+				
+				
+					
+					
+					
+					
+					
+				
+				
+					<div class="hashtag_list">
+					<p class="tit">바로가기 태그</p>
+					
+					
+						<div class="tag_item">
+						<ul>
+						
+							<li><a href="/naver/job/list/developer?entTypeCd=&searchTxt=Hadoop">#Hadoop</a></li>
+						
+							<li><a href="/naver/job/list/developer?entTypeCd=&searchTxt=Java">#Java</a></li>
+						
+							<li><a href="/naver/job/list/developer?entTypeCd=&searchTxt=Linux">#Linux</a></li>
+						
+							<li><a href="/naver/job/list/developer?entTypeCd=&searchTxt=Bigdata">#Bigdata</a></li>
+						
+							<li><a href="/naver/job/list/developer?entTypeCd=&searchTxt=Android">#Android</a></li>
+						
+							<li><a href="/naver/job/list/developer?entTypeCd=&searchTxt=Machine+Learning">#Machine Learning</a></li>
+						
+							<li><a href="/naver/job/list/developer?entTypeCd=&searchTxt=Spring">#Spring</a></li>
+						
+						</ul>
+						</div>
+					
+					</div>
+				
+				
+				
+				
+				
+					<div class="card_list" id="jobListDiv">
+						
+						<ul></ul>
+						<div id="moreDiv"></div>
+					</div>
+				
+				
+			</div>
+			<div class="top_area"> 
+				<a href="#null" id="btnTop" class="sp btn_top"><span class="blind">최상단으로 이동하기</span></a> 
+			</div>
+		</div>
+		<!-- //content -->
+
+	</div>
+	<!-- //container -->
+
+	
+ 		<div id="footer">
+		<div class="footer_inner">
+			<dl class="policy">
+				<dt class="blind">NAVER Career 약관 및 정책</dt>
+				<dd><a href="https://www.navercorp.com/policy/person" target="_home"><strong>개인정보 처리방침</strong></a></dd>
+			</dl>
+			<address>© <a href="http://www.navercorp.com/" target="_blank">NAVER Corp.</a></address>
+			<div id="relate_site" class="relate_site">
+				<a href="#null" id="btnRelateSite" class="site_now">관련사이트 <span class="sp ico_more">더보기</span></a>
+				<div class="site_list">
+				<ul>
+				<li><a href="https://www.navercorp.com/" target="_blank">NAVER Corporation</a></li>
+				<li><a href="https://developers.naver.com/main/naver_recruit.html" target="_blank">NAVER Developers</a></li>
+				<li><a href="https://blog.naver.com/nvr_design" target="_blank">NAVER Design</a></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">lcs_do();</script>
+</body>
+</html>
