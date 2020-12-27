@@ -3,12 +3,10 @@ package com.junho.recruitmentcollector.crawler;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Component
 public class DynamicWebPageUrlCrawler {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
