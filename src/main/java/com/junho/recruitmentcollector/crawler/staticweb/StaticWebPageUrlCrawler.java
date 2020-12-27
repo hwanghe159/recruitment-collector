@@ -1,5 +1,6 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.staticweb;
 
+import com.junho.recruitmentcollector.crawler.CollectStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

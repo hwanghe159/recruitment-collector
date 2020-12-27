@@ -1,5 +1,6 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.staticweb.nhn;
 
+import com.junho.recruitmentcollector.crawler.staticweb.StaticWebPageConnector;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Set;
 
-import static com.junho.recruitmentcollector.crawler.NhnCollectStrategy.NHN_RECRUITMENT_URL_PREFIX;
+import static com.junho.recruitmentcollector.crawler.staticweb.nhn.NhnCollectStrategy.NHN_RECRUITMENT_URL_PREFIX;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockserver.model.HttpRequest.request;

@@ -1,7 +1,7 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.dynamicweb.naver;
 
+import com.junho.recruitmentcollector.crawler.dynamicweb.DynamicWebPageUrlCrawler;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
