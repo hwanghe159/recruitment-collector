@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Set;
 
@@ -18,7 +19,9 @@ class NaverCrawlerTest {
     @BeforeEach
     void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/main/driver/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless", "--no-sandbox");
+        WebDriver driver = new ChromeDriver(chromeOptions);
         crawler = new DynamicWebPageUrlCrawler(driver, new NaverCollectStrategy(driver));
     }
 

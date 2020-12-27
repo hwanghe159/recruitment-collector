@@ -9,6 +9,7 @@ import org.mockserver.client.MockServerClient;
 import org.mockserver.integration.ClientAndServer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,7 +32,9 @@ class NaverCollectStrategyTest {
     void setUp() {
         MOCK_SERVER = ClientAndServer.startClientAndServer(PORT);
         System.setProperty("webdriver.chrome.driver", "src/main/driver/chromedriver.exe");
-        this.driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless", "--no-sandbox");
+        this.driver = new ChromeDriver(chromeOptions);
         this.naverCollectStrategy = new NaverCollectStrategy(driver);
     }
 
