@@ -1,5 +1,7 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.staticweb.nhn;
 
+import com.junho.recruitmentcollector.crawler.staticweb.StaticWebPageConnector;
+import com.junho.recruitmentcollector.crawler.staticweb.StaticWebPageUrlCrawler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

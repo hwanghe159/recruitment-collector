@@ -1,4 +1,4 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.staticweb;
 
 import com.junho.recruitmentcollector.exception.ConnectionFailedException;
 import org.junit.jupiter.api.BeforeEach;

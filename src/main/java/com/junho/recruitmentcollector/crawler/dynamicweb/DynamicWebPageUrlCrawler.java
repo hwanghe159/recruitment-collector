@@ -1,5 +1,6 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.dynamicweb;
 
+import com.junho.recruitmentcollector.crawler.CollectStrategy;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

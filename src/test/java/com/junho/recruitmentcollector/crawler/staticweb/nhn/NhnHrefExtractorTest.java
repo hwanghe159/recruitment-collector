@@ -1,4 +1,4 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.staticweb.nhn;
 
 import com.junho.recruitmentcollector.exception.ExtractFailedException;
 import org.jsoup.nodes.Document;

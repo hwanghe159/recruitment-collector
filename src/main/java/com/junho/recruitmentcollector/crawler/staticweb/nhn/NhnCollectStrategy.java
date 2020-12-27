@@ -1,5 +1,7 @@
-package com.junho.recruitmentcollector.crawler;
+package com.junho.recruitmentcollector.crawler.staticweb.nhn;
 
+import com.junho.recruitmentcollector.crawler.CollectStrategy;
+import com.junho.recruitmentcollector.crawler.staticweb.StaticWebPageConnector;
 import org.jsoup.nodes.Document;
 
 import java.util.List;
