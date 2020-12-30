@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
+@Component
 public class NaverCollectStrategy implements CollectStrategy {
 
     public static final String NAVER_START_URL = "https://recruit.navercorp.com/naver/job/list/developer";
