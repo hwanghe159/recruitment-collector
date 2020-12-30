@@ -10,7 +10,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CollectControllerTest {
+class CompanyControllerTest {
 
     @LocalServerPort
     int port;
@@ -26,11 +26,13 @@ class CollectControllerTest {
 
     @DisplayName("채용 정보를 업데이트하고 저장할 수 있어야 한다.")
     @Test
-    void collectTest() {
+    void updateTest() {
+        Long companyId = 1L;
+
         //@formatter:off
         given().
         when().
-            get("/collect").
+            get("/companies/" + companyId + "/update").
         then().
             log().all().
             statusCode(HttpStatus.NO_CONTENT.value());
