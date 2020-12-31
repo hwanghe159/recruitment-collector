@@ -16,7 +16,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 @Component
 public class NaverCollectStrategy implements CollectStrategy {
 
-    public static final String NAVER_START_URL = "https://recruit.navercorp.com/naver/job/list/developer";
+    public static final String NAVER_URL = "https://recruit.navercorp.com/naver/job/list/developer";
 
     private final WebDriver driver;
 
@@ -25,7 +25,7 @@ public class NaverCollectStrategy implements CollectStrategy {
     }
 
     public Set<String> collect() {
-        driver.get(NAVER_START_URL);
+        driver.get(NAVER_URL);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(presenceOfElementLocated(By.className("crd_tit")));
         driver.findElement(By.className("more_btn")).click();

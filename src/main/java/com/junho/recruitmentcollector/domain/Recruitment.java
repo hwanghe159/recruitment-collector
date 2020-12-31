@@ -28,4 +28,28 @@ public class Recruitment extends BaseTimeEntity {
 
     @ManyToOne(fetch = LAZY)
     private Company company;
+
+    private Boolean isClosed;
+
+    public Recruitment(Long id, String title, String content, String url, Company company, Boolean isClosed) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.url = url;
+        this.company = company;
+        this.isClosed = isClosed;
+    }
+
+    public Recruitment(String title, String content, String url, Company company) {
+        this(null, title, content, url, company, false);
+    }
+
+    public void close() {
+        this.isClosed = true;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }

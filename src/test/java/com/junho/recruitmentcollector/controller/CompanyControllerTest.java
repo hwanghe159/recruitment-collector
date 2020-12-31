@@ -1,41 +1,43 @@
 package com.junho.recruitmentcollector.controller;
 
-import io.restassured.RestAssured;
-import io.restassured.specification.RequestSpecification;
+import com.junho.recruitmentcollector.service.CompanyService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+import static org.mockito.Mockito.doNothing;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+
+@WebMvcTest(controllers = {CompanyController.class})
 class CompanyControllerTest {
 
-    @LocalServerPort
-    int port;
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private CompanyService companyService;
 
     @BeforeEach
-    void setUp() {
-        RestAssured.port = port;
+    void setUp(WebApplicationContext context) {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
+            .build();
     }
 
-    public static RequestSpecification given() {
-        return RestAssured.given().log().all();
-    }
-
-    @DisplayName("채용 정보를 업데이트하고 저장할 수 있어야 한다.")
+    @DisplayName("GET /companies/{companyId}/update 테스트")
     @Test
-    void updateTest() {
+    void updateTest() throws Exception {
         Long companyId = 1L;
+        doNothing().when(companyService).update(companyId);
 
-        //@formatter:off
-        given().
-        when().
-            get("/companies/" + companyId + "/update").
-        then().
-            log().all().
-            statusCode(HttpStatus.NO_CONTENT.value());
-        //@formatter:on
+        this.mockMvc.perform(get("/companies/" + companyId + "/update"))
+            .andExpect(status().isNoContent());
     }
 }
