@@ -3,9 +3,11 @@ package com.junho.recruitmentcollector.crawler.staticweb.nhn;
 import com.junho.recruitmentcollector.exception.ExtractFailedException;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Selector;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class NhnHrefExtractor {
 
     public NhnHrefExtractor() {

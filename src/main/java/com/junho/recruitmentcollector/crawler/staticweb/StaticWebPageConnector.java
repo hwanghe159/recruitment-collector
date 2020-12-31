@@ -3,9 +3,11 @@ package com.junho.recruitmentcollector.crawler.staticweb;
 import com.junho.recruitmentcollector.exception.ConnectionFailedException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class StaticWebPageConnector {
 
     public StaticWebPageConnector() {

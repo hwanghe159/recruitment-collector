@@ -51,7 +51,7 @@ class NaverCollectStrategyTest {
         Set<String> urls = naverCollectStrategy.collect();
 
         assertAll(
-            () -> assertThat(urls).hasSize(15),
+            () -> assertThat(urls).hasSize(16),
             () -> assertThat(urls).allMatch(url -> url.startsWith("https://recruit.navercorp.com/naver/job/detail/developer?annoId="))
         );
     }
