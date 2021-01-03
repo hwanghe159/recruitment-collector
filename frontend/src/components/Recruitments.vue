@@ -3,23 +3,27 @@
     <v-row>
       <v-col sm="2">
         <v-sheet rounded="lg">
-          <v-list color="transparent">
-            <v-list-item-group v-model="selectedCompany" color="dark">
-              <v-list-item link>
-                <v-list-item-content>
-                  <v-list-item-title> 전체보기 </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-
-              <v-divider class="my-2"></v-divider>
-              <v-list-item v-for="(company, idx) in companies" :key="idx" link>
-                <v-list-item-content>
-                  <v-list-item-title> {{ company }} </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
+          <v-card-text>
+            <v-chip-group v-model="selected" column multiple>
+              <v-chip
+                v-for="(company, idx) in companies"
+                :key="idx"
+                filter
+                outlined
+              >
+                {{ company }}
+              </v-chip>
+            </v-chip-group>
+          </v-card-text>
         </v-sheet>
+        <v-btn
+          depressed
+          rounded
+          @click="uncheckAll"
+          v-if="isCheckedAtLeastOne"
+          class="mt-1"
+          >전체해제</v-btn
+        >
       </v-col>
       <v-col sm="10">
         <v-sheet min-height="70vh" rounded="lg">
@@ -47,8 +51,8 @@ export default {
   components: {},
 
   data: () => ({
-    selectedCompany: 1,
     companies: ["네이버", "NHN"],
+    selected: [],
     recruitments: [
       {
         title:
@@ -61,6 +65,14 @@ export default {
   methods: {
     goTo(url) {
       window.open(url, "_blank");
+    },
+    uncheckAll() {
+      this.selected = [];
+    },
+  },
+  computed: {
+    isCheckedAtLeastOne() {
+      return this.selected.length !== 0;
     },
   },
 };
