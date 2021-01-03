@@ -17,5 +17,12 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["vue"],
-  rules: {},
+  rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
+  },
 };
